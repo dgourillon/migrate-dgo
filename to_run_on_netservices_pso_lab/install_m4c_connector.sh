@@ -99,7 +99,7 @@ EOF
 
 
 govc import.ova --options=M4C.json M4C.ova
-
+rm M4C*
 # Connect to the instance 
 M4CE_IP=$(govc vm.ip M4CEv5)
 ssh-keygen -f "/home/labUser/.ssh/known_hosts" -R $M4CE_IP

@@ -1,10 +1,10 @@
-# migrate-dgo
+# Connect a pso lab to your organization
 
 This repository contains terraform an shell scripts to connect a pso lab with your org, using peering from your migrate-xx project as a gateway .  
 
 Please follow the following steps to do so  
 
-## Scripts to run under your organization (to_run_on_your_org folder)  
+## Step 1 : Scripts to run under your organization (to_run_on_your_org folder)  
 
 ### Prerequisites  
 - Create an empty folder in your organization  
@@ -17,7 +17,7 @@ parent_id = "00000000000000"  # ID of the folder you created above
 billing_acccount = "XXXXXX-YYYYYY-ZZZZZZ"  # Billing account of your org  
 </pre> 
 - Run the following command lines  
-  - terrform init  
+  - terraform init  
   - terraform plan  
   - terraform apply  
 The terraform script will create the following resources, and a set of network with no IP overlap with the ranges used on premise.  

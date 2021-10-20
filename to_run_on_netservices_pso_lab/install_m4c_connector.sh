@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 if [[ -z $GOVC_URL || -z $GOVC_USERNAME || -z $GOVC_PASSWORD || -z $GOVC_INSECURE || -z $M4C_VCENTER_PWD || -z $M4C_VCENTER_USER ]]; then
   echo 'Following environment variables need to be set before running the script

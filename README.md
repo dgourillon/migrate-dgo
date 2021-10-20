@@ -46,7 +46,13 @@ The terraform script will create the following resources, and a set of network w
 ### Prerequisites  
 - Have a 'Migrate Tool with vCenter - 7 Day Lease' environment provisioned from the [PSO lab portal](https://vra-02.cso.joonix.net/vcac/)  
 - Perform the steps 1 and 2 from the [Migrate test bed setup doc](https://www.google.com/url?q=https://docs.google.com/document/d/1TA7bKs9JXpo4dP9TvX9lgzD85OJ77bsNkM_dA-tdEvE/edit?usp%3Dsharing&sa=D&source=editors&ust=1634745752792000&usg=AOvVaw3bzyE4XFZYTixnXhwmHVLu)  
-- Login to the GCP console with your cso.joonix.net credential and open a cloud shell  
+- Make sure that terraform currently uses you cso.joonix.net credentals
+  - Run the following command line to set the credentials  
+<pre>  gcloud auth application-default login </pre> 
+- Run the following command lines  
+  - terraform init  
+  - terraform plan  
+  - terraform apply  
 ### Execution 
 - Fill a terraform.tfvars with the following values  
 <pre>
@@ -64,3 +70,5 @@ my_network = "hub-network"                   # The name of the network provision
   - terraform apply  
   
 The terraform script will create a network , peered with the network created in step 1 and a vpngw GCE VM that will act as a network gateway with the on premise pso lab network 
+
+## Step 1 : Scripts to run under your organization (to_run_on_your_org folder)  

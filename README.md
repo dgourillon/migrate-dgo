@@ -16,10 +16,13 @@ parent_type = "folders"
 parent_id = "00000000000000"  # ID of the folder you created above  
 billing_acccount = "XXXXXX-YYYYYY-ZZZZZZ"  # Billing account of your org  
 </pre> 
+- Make sure that terraform currently uses you cso.joonix.net credentals
+  - Run the following command line to set the credentials  
 - Run the following command lines  
   - terraform init  
   - terraform plan  
   - terraform apply  
+  
 The terraform script will create the following resources, and a set of network with no IP overlap with the ranges used on premise.  
 <pre>
          psolab-target (top folder) 
@@ -37,3 +40,27 @@ The terraform script will create the following resources, and a set of network w
          └── migrate  
              └──  GCP project for the M4CE resources  
 </pre> 
+
+## Step 2 : Scripts to run from the GCP console on your migrate-xx project
+
+### Prerequisites  
+- Have a 'Migrate Tool with vCenter - 7 Day Lease' environment provisioned from the [PSO lab portal](https://vra-02.cso.joonix.net/vcac/)  
+- Perform the steps 1 and 2 from the [Migrate test bed setup doc](https://www.google.com/url?q=https://docs.google.com/document/d/1TA7bKs9JXpo4dP9TvX9lgzD85OJ77bsNkM_dA-tdEvE/edit?usp%3Dsharing&sa=D&source=editors&ust=1634745752792000&usg=AOvVaw3bzyE4XFZYTixnXhwmHVLu)  
+- Login to the GCP console with your cso.joonix.net credential and open a cloud shell  
+### Execution 
+- Fill a terraform.tfvars with the following values  
+<pre>
+migrate_gcp_project_id="migrate-xx-yy"      # The GCP project ID you are currently using  
+mtb_number = "xx"                           # The MTB number  
+cso_lab_subnet = "migrate-aa-bb"            # The name of the subnet that matches with your MTB number / Pick from migrate-00-24 , migrate-25-49, migrate-50-74, migrate-75-99  
+
+my_network_project = "net-hub-project-nnnn"  # The name of the network hub project provisioned in the step 1 above
+my_network = "hub-network"                   # The name of the network provisioned in the step 1 above - hub-network  
+</pre> 
+
+- Run the following command lines  
+  - terraform init  
+  - terraform plan  
+  - terraform apply  
+  
+The terraform script will create a network , peered with the network created in step 1 and a vpngw GCE VM that will act as a network gateway with the on premise pso lab network 

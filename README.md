@@ -18,6 +18,7 @@ billing_acccount = "XXXXXX-YYYYYY-ZZZZZZ"  # Billing account of your org
 </pre> 
 - Make sure that terraform currently uses you cso.joonix.net credentals
   - Run the following command line to set the credentials  
+<pre>  gcloud auth application-default login </pre> 
 - Run the following command lines  
   - terraform init  
   - terraform plan  
@@ -41,7 +42,7 @@ The terraform script will create the following resources, and a set of network w
              └──  GCP project for the M4CE resources  
 </pre> 
 
-## Step 2 : Scripts to run from the GCP console on your migrate-xx project
+## Step 2 : Scripts to run from the GCP console on your migrate-xx project (to_run_on_gcp_pso_lab folder)  
 
 ### Prerequisites  
 - Have a 'Migrate Tool with vCenter - 7 Day Lease' environment provisioned from the [PSO lab portal](https://vra-02.cso.joonix.net/vcac/)  
@@ -71,4 +72,20 @@ my_network = "hub-network"                   # The name of the network provision
   
 The terraform script will create a network , peered with the network created in step 1 and a vpngw GCE VM that will act as a network gateway with the on premise pso lab network 
 
-## Step 1 : Scripts to run under your organization (to_run_on_your_org folder)  
+## Step 3 : Finalize the peering connection from your org (to_run_on_your_org folder)  
+### Execution 
+- Add the variables *mtb_project* and *mtb_network* to the tvfars file you used in your own org  
+<pre>
+parent_type = "folders"  
+parent_id = "00000000000000"  
+billing_acccount = "XXXXXX-YYYYYY-ZZZZZZ"  
+mtb_project = "migrate-xx-yyyy"            # the ID of the GCP project used in the step 2
+mtb_network = "migrate-network"     # the name of the network provisionned above - it should be migrate-network
+</pre> 
+- Make sure that terraform currently uses you cso.joonix.net credentals
+  - Run the following command line to set the credentials  
+<pre>  gcloud auth application-default login </pre> 
+- Run the following command lines  
+  - terraform init  
+  - terraform plan  
+  - terraform apply  

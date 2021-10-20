@@ -22,4 +22,4 @@ billing_acccount = "XXXXXX-YYYYYY-ZZZZZZ"
 
 mtb_project = "migrate-xx-yyyy"
 
-mtb_network = "example-network-in-mtb"
+mtb_network = "migrate-network"

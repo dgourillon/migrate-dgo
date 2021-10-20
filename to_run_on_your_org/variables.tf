@@ -56,6 +56,6 @@ variable "mtb_project" {
 variable "mtb_network" {
   type        = string
   description = "billing account to use for projects"
-  default     = "smigrate-network"
+  default     = "migrate-network"
 }
 

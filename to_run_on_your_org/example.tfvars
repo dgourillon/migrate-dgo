@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-parent_type = "organizations"
+parent_type = "folders"
 
 parent_id = "00000000000000"
 

@@ -20,6 +20,8 @@ parent_id = "00000000000000"
 
 billing_acccount = "XXXXXX-YYYYYY-ZZZZZZ"
 
-mtb_project = "migrate-xx-yyyy"
+migrate_gcp_project_id="migrate-83-3734"
 
-mtb_network = "migrate-network"
+mtb_number = "83"
+
+cso_lab_subnet = "migrate-75-99"

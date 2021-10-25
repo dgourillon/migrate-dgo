@@ -31,7 +31,8 @@ module "project_app_dev" {
   parent              = module.folder_apps.ids_list[2]
   services            = [
     "compute.googleapis.com",
-    "stackdriver.googleapis.com"
+    "stackdriver.googleapis.com",
+    "cloudresourcemanager.googleapis.com"
   ]
 
 }
@@ -44,7 +45,8 @@ module "project_app_nonprod" {
   parent              = module.folder_apps.ids_list[1]
   services            = [
     "compute.googleapis.com",
-    "stackdriver.googleapis.com"
+    "stackdriver.googleapis.com",
+    "cloudresourcemanager.googleapis.com"
   ]
 
 }
@@ -57,7 +59,8 @@ module "project_app_prod" {
   parent              = module.folder_apps.ids_list[0]
   services            = [
     "compute.googleapis.com",
-    "stackdriver.googleapis.com"
+    "stackdriver.googleapis.com",
+    "cloudresourcemanager.googleapis.com"
   ]
 
 }
@@ -70,7 +73,8 @@ module "project_network_hub" {
   parent              = module.folder_1.ids_list[1]
   services            = [
     "compute.googleapis.com",
-    "stackdriver.googleapis.com"
+    "stackdriver.googleapis.com",
+    "cloudresourcemanager.googleapis.com"
   ]
 
 }
@@ -83,7 +87,8 @@ module "project_network_spoke_prod" {
   parent              = module.folder_1.ids_list[1]
   services            = [
     "compute.googleapis.com",
-    "stackdriver.googleapis.com"
+    "stackdriver.googleapis.com",
+    "cloudresourcemanager.googleapis.com"
   ]
 
 }
@@ -96,7 +101,8 @@ module "project_network_spoke_dev" {
   parent              = module.folder_1.ids_list[1]
   services            = [
     "compute.googleapis.com",
-    "stackdriver.googleapis.com"
+    "stackdriver.googleapis.com",
+    "cloudresourcemanager.googleapis.com"
   ]
 
 }

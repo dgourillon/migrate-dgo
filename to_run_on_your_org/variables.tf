@@ -47,15 +47,15 @@ variable "all_folder_admins" {
   description = "List of IAM-style members that will get the extended permissions across all the folders."
   default     = []
 }
-variable "mtb_project" {
-  type        = string
-  description = "billing account to use for projects"
-  default     = "mtb_project_id_default_value"
+
+
+variable "mtb_number" {
+  type = string
+}
+variable "cso_lab_subnet" {
+  type = string
 }
 
-variable "mtb_network" {
-  type        = string
-  description = "billing account to use for projects"
-  default     = "migrate-network"
+variable "migrate_gcp_project_id" {
+  type = string
 }
-

@@ -8,7 +8,7 @@ Please follow the following steps to do so
 
 ### Prerequisites  
 - Create an empty folder in your organization  
-- Please make sure your cso.joonix.net credentials has the folder editor rights there  
+- Please make sure your cso.joonix.net credentials has the org admin rights there  
 ### Execution 
 - Fill a terraform.tfvars with the following values  
 <pre>

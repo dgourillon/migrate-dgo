@@ -1,0 +1,15 @@
+
+provider "google" {
+  user_project_override = true
+  region  = "us-west2"
+  project = var.migrate_gcp_project_id
+}
+
+
+resource "google_compute_network_peering" "peering_to_my_org" {
+  name         = "peering-to-mynet"
+  network      = google_compute_network.migrate-network.id
+  peer_network = module.vpc_hub.self_link
+  export_custom_routes = true
+  import_custom_routes = true
+}

@@ -129,10 +129,3 @@ resource "google_compute_project_metadata" "default" {
   }
 }
 
-resource "google_compute_network_peering" "peering1" {
-  name         = "peering-to-mynet"
-  network      = google_compute_network.migrate-network.id
-  peer_network = module.vpc_hub.self_link
-  export_custom_routes = true
-  import_custom_routes = true
-}
